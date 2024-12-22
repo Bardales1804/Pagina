@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio - Información y Ubicaciónx</title>
+    <link rel="stylesheet" href="Css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('./Img/fondo.jpg');
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+        }
+        h1, h2 {
+            color: blue;
+        }
+        p {
+            color: black;
+        }
+        #map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: black;
+            margin-top: 30px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <a href="inicio.html" style="position: absolute; top: 10px; left: 10px; font-size: 16px; text-decoration: none; color: #ffffff; background-color: black; padding: 10px; border-radius: 5px; transition: background-color 0.3s;">Volver al inicio</a>
+
+    <div class="container">
+        <h1>Infraestructura</h1>
+        <img src="./Img/colegio.jpg" alt="Foto del Colegio">
+        <p>Foto de como se veía el colegio anteriormente, <strong>ACTUALMENTE SE ENCUENTRA EN MEJORAS</strong></p>
+        <p>Nuestro colegio cuenta con gran experiencia en la formación de jóvenes con valores, responsabilidad, y un alto nivel académico. Nos ubicamos en la colonia Hichos, en el corazón de la ciudad, facilitando el acceso a todos nuestros estudiantes y personal docente.</p>
+        
+
+        <h2>Ubicación</h2>
+
+        <div id="map"></div>
+        <div class="footer">
+            <p>&copy; 2025 Colegio Mixto Integral El Progreso</p>
+        </div>
+    </div>
+ 
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([14.857777, -90.067532], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([14.857777, -90.067532]).addTo(map)
+            .bindPopup('Colegio Mixto Integral El Progreso')
+            .openPopup();
+    </script>
+
+</body>
+</html>
